@@ -1,0 +1,52 @@
+/* ===== МОБИЛЬНЫЕ КНОПКИ (СПЛОШНОЙ БАР) ===== */
+.mobile-corners {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 1000;
+    gap: 12px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.corner {
+    flex: 1;
+    background: #40a7e3;
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.corner:active {
+    background: #2d8ac7;
+}
+
+.toggle-news-btn {
+    background: none;
+    border: none;
+    color: #40a7e3;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+/* Скрываем мобильные кнопки на десктопе */
+@media (min-width: 900px) {
+    .mobile-corners {
+        display: none;
+    }
+}

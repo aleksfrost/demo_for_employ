@@ -1,0 +1,18 @@
+<div class="sticky-content">
+    <div class="side-card">
+        <h4 class="headlines-title">Последние новости</h4>
+        <div class="headlines-list">
+            {% for headline in recent_headlines %}
+            <div class="headline-item">
+                <a href="{% url 'news_detail' headline.slug %}"
+                    class="headline-link {% if headline.is_important %}headline-important{% endif %}">
+                    {{ headline.title }}
+                </a>
+                <div class="headline-date">
+                    {{ headline.published_at|date:"d.m.Y H:i" }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

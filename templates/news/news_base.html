@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-wrapper">
+
+    {% include 'news/includes/ticker.html' %}
+
+    <div class="columns-wrapper">
+
+        <div class="analytics-panel desktop-only">
+            {% include 'news/includes/analytics_block.html' %}
+        </div>
+
+        <div class="center-column desktop-only">
+            {% block center_column %}{% endblock %}
+        </div>
+
+        <div class="side-column desktop-only">
+            {% include 'news/includes/headlines_block.html' %}
+        </div>
+
+    </div>
+
+    {% include 'news/includes/mobile_corners.html' %}
+
+</div>
+
+{% endblock %}

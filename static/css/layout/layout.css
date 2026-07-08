@@ -1,0 +1,90 @@
+/* Основные контейнеры */
+.page-wrapper {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.columns-wrapper {
+    display: flex;
+    gap: 30px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.center-column {
+    width: 600px;
+    flex-shrink: 0;
+    background: white;
+}
+
+/* Адаптация для планшетов */
+@media (min-width: 600px) {
+    .page-wrapper {
+        padding: 0 20px;
+    }
+}
+
+/* Адаптация для десктопа */
+@media (min-width: 900px) {
+    .columns-wrapper {
+        justify-content: center;
+    }
+
+    .center-column {
+        background: white;
+    }
+
+    /* Прокрутка для боковых колонок */
+    .side-column,
+    .analytics-panel {
+        position: sticky;
+        top: 20px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+    /* Стили для скроллбара (WebKit) */
+    .side-column::-webkit-scrollbar,
+    .analytics-panel::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .side-column::-webkit-scrollbar-track,
+    .analytics-panel::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    .side-column::-webkit-scrollbar-thumb,
+    .analytics-panel::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 3px;
+    }
+
+    .side-column::-webkit-scrollbar-thumb:hover,
+    .analytics-panel::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+}
+
+/* Мобильная версия (до 900px) */
+@media (max-width: 899px) {
+    .page-wrapper {
+        padding: 0 10px;
+    }
+    .columns-wrapper {
+        width: 100%;
+        gap: 0;
+    }
+    .center-column {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    /* Аналитика и сайдбар на мобилке — на всю ширину */
+    .analytics-panel,
+    .side-column {
+        width: 100% !important;
+        max-width: 100%;
+    }
+}

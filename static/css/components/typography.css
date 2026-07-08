@@ -1,0 +1,11 @@
+/* Стили для цитат в новостях */
+.detail-body blockquote,
+.news-full blockquote {
+    margin: 1em 0;
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #40a7e3;
+    font-style: italic;
+    color: #333;
+    font-size: 0.95em;
+}

@@ -1,0 +1,80 @@
+{% extends 'news/news_base.html' %}
+
+{% load static %}
+
+{% block title %}apartprofi — всё про апартаменты{% endblock %}
+
+{% block center_column %}
+
+<div class="channel-header">
+    <div class="channel-header-left">
+        {% if settings and settings.logo %}
+        <img src="{{ settings.logo.url }}" alt="logo" class="channel-avatar">
+        {% else %}
+        <div class="channel-avatar">🏠</div>
+        {% endif %}
+        <div>
+            <div class="channel-name">apartprofi</div>
+            <div class="channel-stats">всё про апартаменты • новости</div>
+        </div>
+    </div>
+
+    <div class="channel-header-right">
+        {% if user.is_authenticated %}
+        <span class="username">{{ user.username }}</span>
+        <a href="{% url 'logout' %}" class="logout-link">Выйти</a>
+        {% else %}
+        <a href="{% url 'login' %}?next={{ request.path }}" class="login-link">Вход</a>
+        <a href="{% url 'register' %}?next={{ request.path }}" class="register-link">Регистрация</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="search-row">
+    <form method="get" action="{% url 'news_list' %}" class="search-form">
+        <input type="text" name="q" placeholder="Поиск по новостям..." value="{{ request.GET.q }}" class="search-input">
+        <button type="submit" class="search-button">🔍 Поиск</button>
+    </form>
+</div>
+
+{% if promo_banner %}
+<div class="news-card promo-card">
+    <div class="news-header">
+        <div class="news-avatar">📢</div>
+        <div class="news-meta">
+            <!-- <div class="news-channel">Реклама</div>
+            <div class="news-date">Партнёрский материал</div> -->
+        </div>
+    </div>
+    <div class="news-preview">
+        <h2 class="news-title">{{ promo_banner.title }}</h2>
+        <p>{{ promo_banner.text|truncatechars:200 }}</p>
+        {% if promo_banner.image %}
+        <img src="{{ promo_banner.image.url }}" class="news-image" loading="lazy">
+        {% endif %}
+        <a href="{{ promo_banner.url }}" class="read-more" target="_blank">Подробнее →</a>
+    </div>
+</div>
+{% endif %}
+
+{% for news in news_list %}
+{% include 'news/includes/news_card.html' %}
+{% empty %}
+<div class="empty-state">
+    <p>😕 Новостей пока нет</p>
+</div>
+{% endfor %}
+
+<script src="{% static 'js/news_toggle.js' %}"></script>
+{% if last_news_id %}
+<script>
+    window.addEventListener('load', function () {
+        var element = document.querySelector('.news-card[data-news-id="{{ last_news_id }}"]');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+</script>
+{% endif %}
+
+{% endblock %}

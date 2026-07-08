@@ -1,0 +1,12 @@
+{% extends 'news/news_base.html' %}
+
+{% block title %}Новости по тегу: {{ tag.name }}{% endblock %}
+
+{% block center_column %}
+<h1>Новости по тегу: {{ tag.name }}</h1>
+{% for news in news_list %}
+{% include 'news/includes/news_card.html' %}
+{% empty %}
+<p>Новостей с этим тегом пока нет.</p>
+{% endfor %}
+{% endblock %}

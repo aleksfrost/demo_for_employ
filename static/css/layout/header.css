@@ -1,0 +1,86 @@
+/* ===== ШАПКА ===== */
+.channel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    background: white;
+}
+
+.channel-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.channel-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #40a7e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.channel-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.channel-stats {
+    color: #999;
+    font-size: 12px;
+}
+
+.channel-header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.channel-header-right .username {
+    color: #666;
+    font-size: 13px;
+}
+
+.channel-header-right .logout-link {
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.channel-header-right .login-link,
+.channel-header-right .register-link {
+    color: #40a7e3;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* Адаптация для планшетов */
+@media (min-width: 600px) {
+    .channel-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    .channel-name {
+        font-size: 18px;
+    }
+
+    .channel-stats {
+        font-size: 14px;
+    }
+
+    .channel-header-right .username,
+    .channel-header-right .logout-link,
+    .channel-header-right .login-link,
+    .channel-header-right .register-link {
+        font-size: 14px;
+    }
+}

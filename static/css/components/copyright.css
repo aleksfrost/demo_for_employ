@@ -1,0 +1,17 @@
+/* ===== КОПИРАЙТ ===== */
+.image-credit {
+    font-size: 12px;
+    color: #999;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-credit a {
+    color: #40a7e3;
+    text-decoration: none;
+}
+
+.image-credit a:hover {
+    text-decoration: underline;
+}

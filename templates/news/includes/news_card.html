@@ -1,0 +1,60 @@
+<div class="news-card" data-news-id="{{ news.id }}">
+    <div class="news-header">
+        {% if settings and settings.logo %}
+        <img src="{{ settings.logo.url }}" alt="logo" class="news-avatar">
+        {% else %}
+        <div class="news-avatar"></div>
+        {% endif %}
+        <div class="news-meta">
+            <div class="news-channel">apartprofi</div>
+            <div class="news-date">{{ news.published_at|date:"j F Y в H:i" }}</div>
+        </div>
+    </div>
+
+    <div class="news-content-wrapper">
+        <a href="{% url 'news_detail' news.slug %}" class="card-link">
+            <div class="news-preview">
+                <h2 class="news-title">{{ news.title }}</h2>
+                <!-- {% if news.tags.all %}
+                <div class="news-tags">
+                    {% for tag in news.tags.all %}
+                    <a href="{% url 'news_by_tag' tag.slug %}" class="tag-button">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %} -->
+                <p>{{ news.preview|default:news.content|truncatechars:200|safe }}</p>
+            </div>
+        </a>
+        <div class="news-full" style="display: none;">
+            <h2 class="news-title">{{ news.title }}</h2>
+            {{ news.content|safe }}
+            <div class="comment-link-mobile">
+                <a href="{% url 'news_detail' news.slug %}" class="comment-btn">💬 Комментировать</a>
+            </div>
+        </div>
+
+        <button class="toggle-news-btn">Развернуть</button>
+        {% if news.attachment and news.attachment.url %}
+        <br><a href="{{ news.attachment.url }}" download class="download-link-preview">📎 Скачать файл</a>
+        {% endif %}
+        {# КАРТИНКА В ПРЕВЬЮ (свёрнутое состояние) #}
+        {% if news.thumbnail %}
+        <img src="{{ news.thumbnail.url }}" alt="{{ news.title }}" class="news-image" loading="lazy">
+        {% elif news.image %}
+        <img src="{{ news.image.url }}" alt="{{ news.title }}" class="news-image" loading="lazy">
+        {% endif %}
+    </div>
+
+    <div class="news-footer">
+        <span>👁 {{ news.views_count }}</span>
+        <span>💬 {{ news.comments.count }}</span>
+    </div>
+
+    <div class="reactions-container">
+        {% for emoji, count in news.get_reactions.items %}
+        {% if count > 0 %}
+        <span>{{ emoji }} {{ count }}</span>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

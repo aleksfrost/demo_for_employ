@@ -1,0 +1,25 @@
+/* ===== РЕАКЦИИ ===== */
+.reactions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.reactions-container span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 6px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* Адаптация для планшетов */
+@media (min-width: 600px) {
+    .reactions-container span {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+}

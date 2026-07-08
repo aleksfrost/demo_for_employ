@@ -1,0 +1,41 @@
+# Виртуальное окружение
+.venv/
+venv/
+ENV/
+
+# База данных
+*.sqlite3
+*.db
+
+# Python кэш
+__pycache__/
+static_root/
+*.pyc
+*.pyo
+*.pyd
+*__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Django статика
+staticfiles/
+media/
+temp/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Логи
+*.log
+
+# Секреты
+.env

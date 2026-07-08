@@ -1,0 +1,10 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "{{ news.title }}",
+    "description": "{{ news.meta_description|default:news.preview }}",
+    "datePublished": "{{ news.published_at|date:'Y-m-d\\TH:i:s' }}",
+    "mainEntityOfPage": "{{ request.build_absolute_uri }}"
+}
+</script>

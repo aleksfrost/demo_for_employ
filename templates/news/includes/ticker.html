@@ -1,0 +1,5 @@
+<div class="ticker-container">
+    <div class="ticker-content" style="--ticker-speed: {{ ticker.speed }}s;">
+        {{ ticker.content|safe|cut:"<p>"|cut:"</p>" }}
+    </div>
+</div>

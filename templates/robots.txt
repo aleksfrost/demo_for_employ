@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /logout/
+Disallow: /profiles/
+Disallow: /comments/
+Disallow: /media/
+Disallow: *?q=*
+Disallow: *?page=*
+Allow: /
+
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml

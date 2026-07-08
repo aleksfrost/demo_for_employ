@@ -1,0 +1,29 @@
+/* ===== БЕГУЩАЯ СТРОКА ===== */
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 8px 0;
+    white-space: nowrap;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: ticker var(--ticker-speed, 60s) linear infinite;
+    font-size: 13px;
+    color: #333;
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

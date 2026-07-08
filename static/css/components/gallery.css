@@ -1,0 +1,23 @@
+/* ===== ГАЛЕРЕЯ ===== */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-thumb {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Адаптация для планшетов */
+@media (min-width: 600px) {
+    .gallery-thumb {
+        width: 150px;
+        height: 150px;
+    }
+}
